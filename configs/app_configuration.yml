@@ -1,0 +1,39 @@
+# Configuration specific to WhatsApp
+whatsapp:
+  url_pattern: '(https?://\S+)'
+  weeks: {
+            0: 'Monday',
+            1: 'Tuesday',
+            2: 'Wednesday',
+            3: 'Thrusday',
+            4: 'Friday',
+            5: 'Saturday',
+            6: 'Sunday'
+        }
+  regex_list: [
+            '(\d+\-\d+\-\d+, \d+:\d+ [a-zA-Z].[a-zA-Z].*) - (.*?): (.*)',
+            '(\d+/\d+/\d+, \d+:\d+\d+ [a-zA-Z]*) - (.*?): (.*)',
+            '(\[\d+/\d+/\d+, \d+:\d+:\d+ [A-Z][A-Z]\]) (.*?): (.*)',
+            '(\d+/\d+/\d+, \d+:\d+ [a-zA-Z][a-zA-Z]) - (.*?): (.*)'
+        ]
+  ignore: [
+            'Missed video call', 'Missed group video call',
+            'Missed voice call', '<Media omitted>',
+            'This message was deleted', 'image omitted',
+            'video omitted', 'You deleted this message',
+            'sticker omitted']
+
+# Logging configuration
+logging:
+  version: 1
+  formatters:
+    xetra:
+      format: "WhatsApp Chat Processor - %(asctime)s - %(levelname)s - %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: xetra
+      level: DEBUG
+  root:
+    level: DEBUG
+    handlers: [ console ]
