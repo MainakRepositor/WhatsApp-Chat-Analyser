@@ -58,7 +58,7 @@ st.sidebar.markdown('''Analyze the chats. Unravel the mysteries behind words''')
 st.sidebar.markdown(APPLICATION_FEATURE)
 
 
-st.sidebar.markdown("[Made by Mainak Chaudhuri](https://www.linkedin.com/in/mainak-chaudhuri-127898176/)")
+
 
 
 def add_multilingual_stopwords() -> Dict:
